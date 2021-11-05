@@ -1,8 +1,10 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Database.Streaming;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reactive.Linq;
@@ -10,14 +12,59 @@ using System.Threading.Tasks;
 
 namespace FirebaseRepos.Reposatories
 {
-    public class RealTimeRepo<T> : IRealTimeRepo<T>, IDisposable where T : class
+    public class RealTimeRepo<T> : IRealTimeRepo<T>, IDisposable where T : IFireBaseClass
     {
         private IDisposable _mainListener;
+        private IDisposable _LocalListener;
         private IDisposable _subListener;
         public readonly ChildQuery Child;
-        public RealTimeRepo(ChildQuery child)
+        public bool UseLocalLestiner { get; set; }
+        private ObservableCollection<T> local;
+
+        public ObservableCollection<T> Local
+        {
+            get
+            {
+                if (local == null)
+                {
+                    local = new ObservableCollection<T>();
+                    if (UseLocalLestiner)
+                        SetLocalLestiner();
+                }
+                return local;
+            }
+        }
+
+        private void SetLocalLestiner()
+        {
+            _LocalListener = Child.AsObservable<T>().Subscribe<FirebaseEvent<T>>(x =>
+            {
+                if (x.EventType == FirebaseEventType.Delete)
+                {
+                    //local.Remove(local.FirstOrDefault(y => EqualityComparer<T>.Default.Equals(y, x.Object)));
+                    local.Remove(local.FirstOrDefault(y => y.ID == x.Object.ID));
+                }
+                else
+                {
+                    var obj = local.FirstOrDefault(y => y.ID == x.Object.ID);
+                    if (obj == null)
+                        local.Add(x.Object);
+                    else
+                    {
+                        var index = local.IndexOf(obj);
+                        local.RemoveAt(index);
+                        local.Insert(index, x.Object);
+                    }
+                }
+                GC.Collect();
+
+            });
+        }
+
+        public RealTimeRepo(ChildQuery child, bool useLocalListener = false)
         {
             Child = child;
+            UseLocalLestiner = useLocalListener;
         }
         public async Task<string> AddAsync(T entity)
         {
@@ -51,6 +98,8 @@ namespace FirebaseRepos.Reposatories
 
         public void Dispose()
         {
+            if (_LocalListener != null)
+                _LocalListener.Dispose();
             GC.SuppressFinalize(this);
         }
 
@@ -62,7 +111,7 @@ namespace FirebaseRepos.Reposatories
             }
             catch (Exception ex)
             {
-                return null;
+                return new List<T>();
             }
         }
 
@@ -109,7 +158,7 @@ namespace FirebaseRepos.Reposatories
             }
             catch (Exception ex)
             {
-                return null;
+                return new List<T>();
             }
         }
         public async Task<List<T>> GetAsync(string propertyName, object value)

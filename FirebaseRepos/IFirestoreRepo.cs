@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FirebaseRepos.Reposatories
 {
-    public interface IFirestoreRepo<T> : IRepository<T>
+    public interface IFirestoreRepo<T> : IRepository<T> where T : IFireBaseClass
     {
         Task<List<T>> GetAsync(List<(string fieldName, object value)> filterFields);
 
         void SetListener(Action<T> action);
-        void SetListener<B>(Action<B> action, string path) where B : new();
+        void SetListener<B>(Action<B> action, string path) where B : IFireBaseClass;
     }
 }

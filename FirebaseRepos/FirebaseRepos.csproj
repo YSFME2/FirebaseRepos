@@ -267,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FirestoreRepo.cs" />
+    <Compile Include="IFireBaseClass.cs" />
     <Compile Include="IFirestoreRepo.cs" />
     <Compile Include="IRealTimeRepo.cs" />
     <Compile Include="IRepository.cs" />

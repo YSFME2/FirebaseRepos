@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseRepos", "FirebaseRepos\FirebaseRepos.csproj", "{BFFFC032-A26C-4638-88EB-C0B5FFB4ABC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseRepos.Core", "FirebaseRepos.Core\FirebaseRepos.Core.csproj", "{3A8E37D4-77DA-4E41-8BAF-B6276BF66CAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirebaseRepos.Core", "FirebaseRepos.Core\FirebaseRepos.Core.csproj", "{3A8E37D4-77DA-4E41-8BAF-B6276BF66CAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseRepos.WPFSimple", "FirebaseRepos.WPFSimple\FirebaseRepos.WPFSimple.csproj", "{419DC509-65A5-4578-8EE9-10D4C08D3268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3A8E37D4-77DA-4E41-8BAF-B6276BF66CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A8E37D4-77DA-4E41-8BAF-B6276BF66CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A8E37D4-77DA-4E41-8BAF-B6276BF66CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{419DC509-65A5-4578-8EE9-10D4C08D3268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419DC509-65A5-4578-8EE9-10D4C08D3268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419DC509-65A5-4578-8EE9-10D4C08D3268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419DC509-65A5-4578-8EE9-10D4C08D3268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

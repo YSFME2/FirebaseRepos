@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FirebaseRepos.Reposatories
 {
-    public interface IRealTimeRepo<T> : IRepository<T>
+    public interface IRealTimeRepo<T> : IRepository<T> where T : IFireBaseClass
     {
         Task<List<T>> GetAsync(Func<FirebaseObject<T>, bool> predec);
         void SetListener(Action<FirebaseEvent<T>> action);

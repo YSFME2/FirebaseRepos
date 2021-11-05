@@ -3,8 +3,7 @@ using System.Threading.Tasks;
 
 namespace FirebaseRepos.Reposatories
 {
-    public interface IRepository<T>
-    {
+    public interface IRepository<T> where T : IFireBaseClass    {
         Task<T> GetAsync(string id);
         T Get(string id);
         Task<List<T>> GetAllAsync();

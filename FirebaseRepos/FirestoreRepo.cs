@@ -8,7 +8,7 @@ using static FirebaseRepos.SnapshotSerialization;
 
 namespace FirebaseRepos.Reposatories
 {
-    public class FirestoreRepo<T> : IFirestoreRepo<T>, IDisposable where T : new()
+    public class FirestoreRepo<T> : IFirestoreRepo<T>, IDisposable where T : IFireBaseClass
     {
         private readonly CollectionReference _collection;
         private FirestoreChangeListener main;
@@ -103,7 +103,7 @@ namespace FirebaseRepos.Reposatories
             main = _collection.Document().Listen((DocumentSnapshot) => { action(DeserializeSnapshot<T>(DocumentSnapshot)); });
         }
 
-        public void SetListener<B>(Action<B> action, string path) where B : new()
+        public void SetListener<B>(Action<B> action, string path) where B : IFireBaseClass
         {
            sub = _collection.Document(path).Listen((DocumentSnapshot) => { action(DeserializeSnapshot<B>(DocumentSnapshot)); });
         }

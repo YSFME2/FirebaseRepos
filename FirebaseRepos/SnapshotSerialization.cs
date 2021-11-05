@@ -10,7 +10,7 @@ namespace FirebaseRepos
 {
     public class SnapshotSerialization
     {
-        public static List<T> DeserializeSnapshots<T>(QuerySnapshot snapshots) where T : new()
+        public static List<T> DeserializeSnapshots<T>(QuerySnapshot snapshots) where T : IFireBaseClass
         {
             List<T> result = new List<T>();
             foreach (var snapshot in snapshots.Documents)
@@ -20,7 +20,7 @@ namespace FirebaseRepos
             return result;
         }
 
-        public static T DeserializeSnapshot<T>(DocumentSnapshot snapshot) where T : new()
+        public static T DeserializeSnapshot<T>(DocumentSnapshot snapshot) where T : IFireBaseClass
         {
             dynamic value = snapshot.ConvertTo<dynamic>();
             var result = JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(value));
