@@ -4,6 +4,8 @@ Is a nuget Package that deals with Firebase RealTime Database and FireStore
 * .NetFramework (>=4.5)
 * .Net Standard (>=2.0)
 * UWP
+<br/>
+
 ## Dependencies
 ### RealTime Database
 * [FirebaseRepos.Base](https://www.nuget.org/packages/FirebaseRepos.Base/)
@@ -15,6 +17,9 @@ Is a nuget Package that deals with Firebase RealTime Database and FireStore
 * [Google.Cloud.Firestore](https://www.nuget.org/packages/Google.Cloud.Firestore/)
 ##### Only for .Net Standard
 * [Microsoft.CSharp](https://www.nuget.org/packages/Microsoft.CSharp/)
+
+<br/>
+
 ## Install
 ### RealTime Database
 ```
@@ -24,6 +29,8 @@ PM> Install-Package FirebaseRepos.RealTime
 ```
 PM> Install-Package FirebaseRepos.FireStore
 ```
+
+<br/>
 
 ## Usage
 ### Create FireBase Client
