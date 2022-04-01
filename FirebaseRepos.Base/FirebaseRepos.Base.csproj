@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirebaseRepos\Base\Extentions\Extensions.cs" />
     <Compile Include="FirebaseRepos\Base\IFireBaseClass.cs" />
     <Compile Include="FirebaseRepos\Base\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
