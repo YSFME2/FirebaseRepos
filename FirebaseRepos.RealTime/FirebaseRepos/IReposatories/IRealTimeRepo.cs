@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FirebaseRepos.Reposatories
+namespace FirebaseRepos.IReposatories
 {
     public interface IRealTimeRepo<T> : IRepository<T> where T : IFireBaseClass
     {

@@ -59,16 +59,14 @@
     <Compile Include="FirebaseRepos\Base\Extentions\Extentions.cs" />
     <Compile Include="FirebaseRepos\Base\IFireBaseClass.cs" />
     <Compile Include="FirebaseRepos\Base\IRepository.cs" />
-    <Compile Include="FirebaseRepos\RealTime\IRealTimeRepo.cs" />
+    <Compile Include="FirebaseRepos\IReposatories\IRealTimeRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RealTimeRepo.cs" />
+    <Compile Include="FirebaseRepos\RealTime\RealTimeRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FirebaseRepos\Reposatories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

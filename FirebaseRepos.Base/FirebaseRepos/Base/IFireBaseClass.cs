@@ -3,6 +3,6 @@ namespace FirebaseRepos.Base
 {
     public interface IFireBaseClass
     {
-        string ID { get; }
+        string ID { get; set; }
     }
 }

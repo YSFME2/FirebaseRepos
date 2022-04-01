@@ -2,7 +2,7 @@
 using Firebase.Database.Query;
 using Firebase.Database.Streaming;
 using FirebaseRepos.Base;
-using FirebaseRepos.Reposatories;
+using FirebaseRepos.IReposatories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -106,7 +106,12 @@ namespace FirebaseRepos.RealTime
         {
             try
             {
-                return (await Child.OnceAsync<T>()).Select(x => x.Object).ToList();
+                var list = (await Child.OnceAsync<T>());
+                foreach (var item in list)
+                {
+                    item.Object.ID = item.Key;
+                }
+                return list.Select(x => x.Object).ToList();
             }
             catch (Exception ex)
             {
@@ -130,7 +135,9 @@ namespace FirebaseRepos.RealTime
         {
             try
             {
-                return Child.Child(id).OnceSingleAsync<T>().GetAwaiter().GetResult();
+                var x = Child.Child(id).OnceSingleAsync<T>().GetAwaiter().GetResult();
+                x.ID = id;
+                return x;
             }
             catch (Exception ex)
             {
@@ -141,7 +148,12 @@ namespace FirebaseRepos.RealTime
         {
             try
             {
-                return Child.OnceAsync<T>().GetAwaiter().GetResult().Select(x => x.Object).ToList();
+                var list = Child.OnceAsync<T>().GetAwaiter().GetResult();
+                foreach (var item in list)
+                {
+                    item.Object.ID = item.Key;
+                }
+                return list.Select(x => x.Object).ToList();
             }
             catch (Exception ex)
             {
