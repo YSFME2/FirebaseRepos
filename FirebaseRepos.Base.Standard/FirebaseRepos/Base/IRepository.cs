@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FirebaseRepos.Reposatories
+namespace FirebaseRepos.Base
 {
-    public interface IRepository<T> where T : IFireBaseClass    {
+    public interface IRepository<T> where T : IFireBaseClass
+    {
         Task<T> GetAsync(string id);
         T Get(string id);
         Task<List<T>> GetAllAsync();

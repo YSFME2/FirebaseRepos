@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package >
+<package>
   <metadata>
     <id>FirebaseRepos</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>FirebaseRepos</title>
     <authors>Youssef Shaaban</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -97,5 +97,6 @@
     <file src="FirebaseRepos\RealTimeRepo.cs" target="content\RealTimeRepo.cs"/>
     <file src="FirebaseRepos\SnapshotSerialization.cs" target="content\SnapshotSerialization.cs"/>
     <file src="FirebaseRepos\Storage.cs" target="content\Storage.cs"/>
+    <file src="FirebaseRepos\IFireBaseClass.cs" target="content\IFireBaseClass.cs"/>
   </files>
 </package>

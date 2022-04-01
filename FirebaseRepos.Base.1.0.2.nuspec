@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>FirebaseRepos.Base</id>
+    <version>1.0.3</version>
+    <title>FirebaseRepos.Base</title>
+    <authors>Youssef Shaaban</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/YSFME2/FirebaseRepos</projectUrl>
+    <description>Firebase RealTimeDataBase and FireStore Reposatories and upload files to firebase storage base classes</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright © Youssef Shaaban  2021</copyright>
+    <tags>firebase firestore firebasestoorage storage google googlestorage realtime database realtimedatabase</tags>
+  </metadata>
+  <files>
+    <file src="FirebaseRepos.Base\FirebaseRepos\Base\Extentions\Extensions.cs" target="content\FirebaseRepos\Base\Extentions\Extentions.cs"/>
+    <file src="FirebaseRepos.Base\FirebaseRepos\Base\IFireBaseClass.cs" target="content\FirebaseRepos\Base\IFireBaseClass.cs"/>
+    <file src="FirebaseRepos.Base\FirebaseRepos\Base\IRepository.cs" target="content\FirebaseRepos\Base\IRepository.cs"/>
+  </files>
+</package>

@@ -1,16 +1,16 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Database.Streaming;
-using Newtonsoft.Json;
+using FirebaseRepos.Base;
+using FirebaseRepos.Reposatories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 
-namespace FirebaseRepos.Reposatories
+namespace FirebaseRepos.RealTime
 {
     public class RealTimeRepo<T> : IRealTimeRepo<T>, IDisposable where T : IFireBaseClass
     {
@@ -41,7 +41,6 @@ namespace FirebaseRepos.Reposatories
             {
                 if (x.EventType == FirebaseEventType.Delete)
                 {
-                    //local.Remove(local.FirstOrDefault(y => EqualityComparer<T>.Default.Equals(y, x.Object)));
                     local.Remove(local.FirstOrDefault(y => y.ID == x.Object.ID));
                 }
                 else
