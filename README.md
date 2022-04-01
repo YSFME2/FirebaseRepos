@@ -21,11 +21,11 @@ Is a nuget Package that deals with Firebase RealTime Database and FireStore
 <br/>
 
 ## Install
-### RealTime Database
+### [RealTime Database](https://www.nuget.org/packages/FirebaseRepos.RealTime/)
 ```
 PM> Install-Package FirebaseRepos.RealTime
 ```
-### FireStore
+### [FireStore](https://www.nuget.org/packages/FirebaseRepos.FireStore/)
 ```
 PM> Install-Package FirebaseRepos.FireStore
 ```
